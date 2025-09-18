@@ -1,0 +1,27 @@
+# Read the csv file into a data frame
+food <- read.csv("C:/Users/Admin/Documents/jalala/food.csv")
+
+# Create a data frame of food item tomato
+tomato <- data.frame(Ingredient="tomato", Sweetness=6, Crunchiness=4)
+
+# Create data frames of second and third columns of food and tomato
+food1 <- food[, 2:3]
+tomato1 <- tomato[, 2:3]
+
+# Input value of k from user (interactive)
+k <- as.numeric(readline(prompt = "Enter the value of k: "))
+
+# Load the class library for k-NN
+library(class)
+
+# Perform k-NN classification
+pred <- knn(food1, tomato1, food$FoodType, k)
+
+# Print the predicted food type
+cat("Predicted Food Type of Tomato:\n")
+print(pred)
+output
+Predicted Food Type of Tomato:
+> print(pred)
+[1] fruit
+Levels: fruit protein vegetable
